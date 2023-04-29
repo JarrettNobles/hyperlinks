@@ -107,60 +107,76 @@ RichText _paragraph4() {
               "that is filled with diverse students and expert professionals "
               "who are eager to teach you invaluable knowledge. The Computer "
               "Science program is among the top majors in the country with a "
-              "high demand for graduates. ",
-        ), // TextSpan
+              "high demand for graduates. Located in the Willet Science center at ",
+        ),
         TextSpan(
-          text:
-          "In Mercer’s program, you will learn programming languages, algorithms and data structures, software methodology and tools, computer hardware, and more. ",
-        ), // TextSpan
-        TextSpan(
-          text:
-          "Located in the Willet Science center at 1501 Mercer University Dr, Macon, GA 31207 ",
-        ), // TextSpan
-        TextSpan(
-          text: "(Address)",
-          style: const TextStyle(
+          text: "1501 Mercer University Dr, Macon, GA 31207",
+          style: TextStyle(
             color: Colors.blue,
-            fontWeight: FontWeight.bold,
             decoration: TextDecoration.underline,
-          ), // TextStyle
+          ),
           recognizer: TapGestureRecognizer()
-            ..onTap = () =>
-                _displayWebsite("https://www.mercer.edu/about/locations/macon/"),
-        ), // TextSpan
-        TextSpan(
+            ..onTap = () {
+              launchMaps();
+            },
+        ),
+        const TextSpan(
           text:
           " for more info visit ",
-        ), // TextSpan
+        ),
         TextSpan(
-          text:
-          "https://liberalarts.mercer.edu/academic-programs/majors-and-minors/computer-science/",
-          style: const TextStyle(
+          text: "https://liberalarts.mercer.edu/academic-programs/majors-and-minors/computer-science/",
+          style: TextStyle(
             color: Colors.blue,
-            fontWeight: FontWeight.bold,
             decoration: TextDecoration.underline,
-          ), // TextStyle
+          ),
           recognizer: TapGestureRecognizer()
-            ..onTap = () =>
-                _displayWebsite("https://liberalarts.mercer.edu/academic-programs/majors-and-minors/computer-science/"),
-        ), // TextSpan
+            ..onTap = () {
+              launchWebsite();
+            },
+        ),
         const TextSpan(
           text: " or call ",
-        ), // TextSpan
+        ),
         TextSpan(
           text: "478-301-2817",
-          style: const TextStyle(
+          style: TextStyle(
             color: Colors.blue,
-            fontWeight: FontWeight.bold,
             decoration: TextDecoration.underline,
-          ), // TextStyle
+          ),
           recognizer: TapGestureRecognizer()
-            ..onTap = () => launch("tel:4783012817"),
-        ), // TextSpan
-        const TextSpan(
-          text: ".",
-        ), // TextSpan
-      ], // <TextSpan>[]
-    ), // TextSpan
+            ..onTap = () {
+              launchPhone();
+            },
+        ),
+      ],
+    ),
   );
-} // end of _paragraph4()
+}
+
+void launchMaps() async {
+  const url = 'https://www.google.com/maps?q=1501+Mercer+University+Dr,+Macon,+GA+31207';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
+void launchWebsite() async {
+  const url = 'https://liberalarts.mercer.edu/academic-programs/majors-and-minors/computer-science/';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
+void launchPhone() async {
+  const url = 'tel:+14783012817';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
