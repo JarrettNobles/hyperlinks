@@ -56,7 +56,7 @@ class Method1Display extends StatelessWidget {
                   'Macon, GA 31207',
               '1200+Prince+St,+Macon,+GA+31207',
             ),
-            urlText('https://mercer.edu'),
+            urlText('https://engineering.mercer.edu'),
             GestureDetector(
               onTap: () async {
                 const numberStr = '478-301-2012';
@@ -88,7 +88,7 @@ class Method1Display extends StatelessWidget {
             'Macon, GA 31207',
             '1501+Mercer+University+Dr,+Macon,+GA+31207',
             ),
-            urlText('https://mercer.edu'),
+            urlText('https://liberalarts.mercer.edu/academic-programs/majors-and-minors/computer-science/'),
             GestureDetector(
               onTap: () async {
                 const numberStr = '478-301-2817';
