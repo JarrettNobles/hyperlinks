@@ -108,10 +108,6 @@ class Method1Display extends StatelessWidget {
                 ),
               ),
             ),
-
-
-
-
           ],
         ),
       ),
