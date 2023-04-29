@@ -44,6 +44,74 @@ class Method1Display extends StatelessWidget {
                 }
               },
             ),
+
+            //Engineering school info
+            const Text(
+              '\nSch. of Engineering',
+              textScaleFactor: 1.5,
+            ),
+            //urlText('https://mercer.edu'),
+            addressText(
+              '1200 Prince St.,\n'
+                  'Macon, GA 31207',
+              '1200+Prince+St,+Macon,+GA+31207',
+            ),
+            urlText('https://mercer.edu'),
+            GestureDetector(
+              onTap: () async {
+                const numberStr = '478-301-2012';
+                final Uri urlUri = Uri.parse('tel:$numberStr');
+                try {
+                  await launchUrl(urlUri);
+                } catch (ex) {
+                  throw 'Could not call number';
+                }
+              },
+              child: const Text(
+                '478-301-2012',
+                textScaleFactor: 1.5,
+                style: TextStyle(
+                  color: Colors.blue,
+                  decoration: TextDecoration.underline,
+                ),
+              ),
+            ),
+
+            //computer Science department info
+            const Text(
+              '\nComputer Science',
+              textScaleFactor: 1.5,
+            ),
+            //urlText('https://mercer.edu'),
+            addressText(
+              '1501 Mercer University Dr,\n'
+            'Macon, GA 31207',
+            '1501+Mercer+University+Dr,+Macon,+GA+31207',
+            ),
+            urlText('https://mercer.edu'),
+            GestureDetector(
+              onTap: () async {
+                const numberStr = '478-301-2817';
+                final Uri urlUri = Uri.parse('tel:$numberStr');
+                try {
+                  await launchUrl(urlUri);
+                } catch (ex) {
+                  throw 'Could not call number';
+                }
+              },
+              child: const Text(
+                '478-301-2817',
+                textScaleFactor: 1.5,
+                style: TextStyle(
+                  color: Colors.blue,
+                  decoration: TextDecoration.underline,
+                ),
+              ),
+            ),
+
+
+
+
           ],
         ),
       ),
