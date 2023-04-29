@@ -1,62 +1,68 @@
-//imports
 import 'package:flutter/material.dart';
 import 'method1_hyperlinks.dart';
+import 'method2_hyperlinks.dart';
 
 const String _appTitle = 'Hyperlinks';
 
 var hyperlinksNavRoutes = <String, WidgetBuilder>{
-
-  // in main.dart
-  'first_screen' : (context) => const MyHomePage(),
-
-  // add other screens here !!!
+  'first_screen': (context) => const MyHomePage(),
+  'method1_hyperlinks': (context) => const Method1Display(),
+  'method2_hyperlinks': (context) => const Method2Display(),
 };
 
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
-
-  const MyApp ({Key? key}) : super(key: key);
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
-
-      // Remove the debug banner
       debugShowCheckedModeBanner: false,
-
       title: _appTitle,
-
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-
       initialRoute: 'first_screen',
       routes: hyperlinksNavRoutes,
     );
-
   }
-}   // end of MyApp
+}
 
 class MyHomePage extends StatelessWidget {
-
-  const MyHomePage ({Key? key}) : super(key: key);
+  const MyHomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-
       appBar: AppBar(
         title: const Text(_appTitle),
-      ), // AppBar
-
-
-      body: const Method1Display(),
-
-    ); // Scaffold
-
+      ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, 'method1_hyperlinks');
+              },
+              child: const Text('Method 1 Hyperlinks'),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, 'method2_hyperlinks');
+              },
+              child: const Text('Method 2 Hyperlinks'),
+            ),
+          ),
+        ],
+      ),
+    );
   }
+}
 
-}  // end of MyHomePage
+
